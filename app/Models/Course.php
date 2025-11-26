@@ -15,10 +15,16 @@ class Course extends Model
         'teacher_id',
         'price',
         'schedule',
+        'instrument_id',
     ];
 
     public function teacher()
     {
         return $this->belongsTo(User::class, 'teacher_id');
+    }
+
+    public function instrument()
+    {
+        return $this->belongsTo(Instrument::class);
     }
 }

@@ -20,13 +20,17 @@ class CourseController extends Controller
     /**
      * Show the form for creating a new resource.
      */
+    /**
+     * Show the form for creating a new resource.
+     */
     public function create()
     {
         // Get users who are staff or admin to be teachers
         $teachers = User::whereHas('role', function($q) {
             $q->whereIn('name', ['admin', 'staff']);
         })->get();
-        return view('courses.create', compact('teachers'));
+        $instruments = \App\Models\Instrument::all();
+        return view('courses.create', compact('teachers', 'instruments'));
     }
 
     /**
@@ -38,6 +42,7 @@ class CourseController extends Controller
             'name' => 'required|string|max:255',
             'description' => 'nullable|string',
             'teacher_id' => 'nullable|exists:users,id',
+            'instrument_id' => 'nullable|exists:instruments,id',
             'price' => 'required|numeric|min:0',
             'schedule' => 'required|string|max:255',
         ]);
@@ -63,7 +68,8 @@ class CourseController extends Controller
         $teachers = User::whereHas('role', function($q) {
             $q->whereIn('name', ['admin', 'staff']);
         })->get();
-        return view('courses.edit', compact('course', 'teachers'));
+        $instruments = \App\Models\Instrument::all();
+        return view('courses.edit', compact('course', 'teachers', 'instruments'));
     }
 
     /**
@@ -75,6 +81,7 @@ class CourseController extends Controller
             'name' => 'required|string|max:255',
             'description' => 'nullable|string',
             'teacher_id' => 'nullable|exists:users,id',
+            'instrument_id' => 'nullable|exists:instruments,id',
             'price' => 'required|numeric|min:0',
             'schedule' => 'required|string|max:255',
         ]);

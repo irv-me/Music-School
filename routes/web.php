@@ -17,6 +17,7 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
 
 Route::middleware(['auth'])->group(function () {
     Route::resource('courses', \App\Http\Controllers\CourseController::class);
+    Route::resource('instruments', \App\Http\Controllers\InstrumentController::class);
 });
 
 require __DIR__.'/auth.php';

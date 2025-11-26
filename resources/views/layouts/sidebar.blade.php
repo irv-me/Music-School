@@ -14,6 +14,10 @@
             {{ __('Courses') }}
         </x-responsive-nav-link>
 
+        <x-responsive-nav-link :href="route('instruments.index')" :active="request()->routeIs('instruments.*')">
+            {{ __('Instruments') }}
+        </x-responsive-nav-link>
+
         <x-responsive-nav-link :href="route('users.index')" :active="request()->routeIs('users.*')">
             {{ __('Users') }}
         </x-responsive-nav-link>

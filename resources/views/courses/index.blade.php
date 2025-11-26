@@ -24,6 +24,7 @@
                                 <h4 class="text-xl font-bold mb-2">{{ $course->name }}</h4>
                                 <p class="text-gray-600 dark:text-gray-400 mb-2">{{ Str::limit($course->description, 100) }}</p>
                                 <p class="mb-1"><strong>Teacher:</strong> {{ $course->teacher->name ?? 'TBA' }}</p>
+                                <p class="mb-1"><strong>Instrument:</strong> {{ $course->instrument->name ?? 'None' }}</p>
                                 <p class="mb-1"><strong>Schedule:</strong> {{ $course->schedule }}</p>
                                 <p class="mb-2"><strong>Price:</strong> ${{ number_format($course->price, 2) }}</p>
                                 
