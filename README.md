@@ -11,6 +11,7 @@ A Laravel-based management system for a Music School, featuring role-based authe
   - **Client**: View available courses.
 - **User Management**: Admins can create, edit, and delete users.
 - **Course Management**: CRUD operations for music courses (Name, Description, Teacher, Price, Schedule).
+- **Instrument Management**: CRUD operations for instruments (Name, Description), linked to courses.
 
 ## Installation
 
@@ -54,6 +55,7 @@ A Laravel-based management system for a Music School, featuring role-based authe
 - **Access Control**:
   - Navigate to `/users` to manage users (Admin only).
   - Navigate to `/courses` to manage courses (Admin/Staff).
+  - Navigate to `/instruments` to manage instruments (Admin/Staff).
 
 ## Tech Stack
 

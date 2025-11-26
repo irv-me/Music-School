@@ -12,6 +12,11 @@ class CourseSeeder extends Seeder
      */
     public function run(): void
     {
-        \App\Models\Course::factory(10)->create();
+        $instruments = \App\Models\Instrument::all();
+
+        \App\Models\Course::factory(10)->make()->each(function ($course) use ($instruments) {
+            $course->instrument_id = $instruments->random()->id;
+            $course->save();
+        });
     }
 }
