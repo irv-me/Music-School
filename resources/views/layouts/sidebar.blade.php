@@ -1,7 +1,8 @@
 <div class="min-h-screen w-64 bg-white dark:bg-gray-800 border-r border-gray-100 dark:border-gray-700 hidden sm:block">
-    <div class="p-6 flex items-center justify-center">
-        <a href="{{ route('dashboard') }}">
-            <x-application-logo class="block h-12 w-auto fill-current text-gray-800 dark:text-gray-200" />
+    <div class="p-6 flex flex-col items-center justify-center">
+        <a href="{{ route('dashboard') }}" class="flex flex-col items-center">
+            <img src="{{ asset('images/logo.png') }}" alt="MelodyGestor Logo" class="h-20 w-auto mb-2">
+            <span class="text-xl font-bold text-gray-800 dark:text-gray-200">MelodyGestor</span>
         </a>
     </div>
     
