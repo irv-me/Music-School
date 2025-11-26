@@ -61,8 +61,8 @@ class User extends Authenticatable
         return $this->role && $this->role->name === 'staff';
     }
 
-    public function isClient()
+    public function isTeacher()
     {
-        return $this->role && $this->role->name === 'client';
+        return $this->role && $this->role->name === 'teacher';
     }
 }

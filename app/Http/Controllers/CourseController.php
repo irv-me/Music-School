@@ -27,7 +27,7 @@ class CourseController extends Controller
     {
         // Get users who are staff or admin to be teachers
         $teachers = User::whereHas('role', function($q) {
-            $q->whereIn('name', ['admin', 'staff']);
+            $q->whereIn('name', ['admin', 'staff', 'teacher']);
         })->get();
         $instruments = \App\Models\Instrument::all();
         return view('courses.create', compact('teachers', 'instruments'));
@@ -66,7 +66,7 @@ class CourseController extends Controller
     public function edit(Course $course)
     {
         $teachers = User::whereHas('role', function($q) {
-            $q->whereIn('name', ['admin', 'staff']);
+            $q->whereIn('name', ['admin', 'staff', 'teacher']);
         })->get();
         $instruments = \App\Models\Instrument::all();
         return view('courses.edit', compact('course', 'teachers', 'instruments'));

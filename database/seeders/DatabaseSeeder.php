@@ -24,7 +24,7 @@ class DatabaseSeeder extends Seeder
             CourseSeeder::class,
         ]);
 
-        $clientRole = \App\Models\Role::where('name', 'client')->first();
+        $clientRole = \App\Models\Role::where('name', 'teacher')->first();
         User::factory(3)->create([
             'role_id' => $clientRole->id,
         ]); // Create some dummy users
